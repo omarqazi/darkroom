@@ -1,0 +1,2 @@
+class ChannelController < ApplicationController
+end
