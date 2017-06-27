@@ -10,6 +10,6 @@ class CreateChannels < ActiveRecord::Migration[5.1]
       t.timestamps
     end
     
-    add_index :channels, [:identifier, :guide_server_id], unique: true
+    add_index :channels, :identifier
   end
 end
