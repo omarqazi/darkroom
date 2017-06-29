@@ -1,0 +1,21 @@
+<div class="button-toolbar">
+    <div class="button-container pull-right">
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Channel</button>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="channel-container row">
+    <% @channels.each do |channel| %>
+        <a href="/channel/<%= channel.id %>">
+        <div class="channel-tile col-md-6 col-lg-4 col-sm-6 col-xs-12 col-xl-4" id="channel_tile_<%= channel.id %>">
+            <h3><%= channel.title %></h3>
+            <p><%= channel.description %></p>
+			<video src="<%= channel.stream_url.to_s %>" controls muted>
+			<source src="<%= channel.stream_url.to_s %>" type="application/x-mpegURL">
+			This browser does not support HTML5 video.
+			</video>
+        </div>
+        </a>
+    <% end %>
+</div>

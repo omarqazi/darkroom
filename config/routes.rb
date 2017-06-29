@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'studio#index'
+  root to: 'channel#index'
+  get '/channel', to: 'channel#index'
+  get '/channel/:id', to: 'channel#live'
 end

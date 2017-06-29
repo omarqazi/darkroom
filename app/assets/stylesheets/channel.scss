@@ -1,3 +1,66 @@
-// Place all the styles related to the channel controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    background-color : black;
+    color : white;
+    margin-left : 40px;
+}
+
+h1 {
+    color : black;
+    background-color : white;
+    padding : 20px;
+    padding-top : 30px;
+    width : 255px;
+}
+
+div.channel-tile h3 {
+    font-weight : bold;
+    margin : 0;
+    padding : 0;
+    font-size : 1.8em;
+}
+
+div.channel-tile p {
+    font-size : 1.1em;
+}
+
+div.channel-tile {
+    cursor : pointer;
+    margin-bottom : 40px;
+}
+
+div.channel-tile video {
+    height : 225px;
+    width : 400px;
+}
+
+div.button-toolbar {
+    width : 100%;
+}
+
+div.button-container {
+    padding-right : 20px;
+}
+
+div.channel-container a {
+    color : white;
+}
+
+input[type="textbox"] {
+    color : black;
+    padding : 10px;
+    width : 300px;
+}
+
+a.hlink {
+    text-decoration : none;
+}
+
+header * {
+    display : inline-block;
+}
+
+h2 {
+    margin-left : 20px;
+    font-size : 3em;
+    font-weight : bold;
+}

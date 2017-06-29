@@ -2,6 +2,6 @@
 
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
-config.generators do |g|
+Rails.application.config.generators do |g|
   g.javascript_engine :js
 end
