@@ -3,7 +3,8 @@ class CreatePlaylists < ActiveRecord::Migration[5.1]
     create_table :playlists do |t|
       t.string :key
       t.string :playlist_url
-      t.jsonb :metadata, null: false, default: '{}'
+      t.string :poster_url
+      t.jsonb :metadata, null: false, default: {}
       t.timestamps
     end
     
