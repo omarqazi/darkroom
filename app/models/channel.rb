@@ -36,6 +36,10 @@ class Channel < ApplicationRecord
     send_http_request req
   end
   
+  def stream_instruction
+    StreamInstruction.new instruction
+  end
+  
   private
   def send_http_request(req)
     uri = stream_url

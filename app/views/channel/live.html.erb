@@ -1,16 +1,29 @@
 <h2><%= @channel.title %></h2>
 <p><%= @channel.description %></p>
 
-<input type="textbox" value="<%= @channel.instruction %>">
+<input class="instruction-box" id="instruction_input_box" spellcheck="false" autocorrect="off" autocapitalize="off" type="textbox" value="<%= @channel.instruction %>">
 
-<button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> Preview</button>
-<button class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Queue</button>
-<button class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span> Run</button>
-<button class="btn btn-danger"><span class="glyphicon glyphicon-repeat"></span> Restart</button>
+<div class="button-group">
+    <button class="btn btn-primary" onclick="PreviewInstruction()"><span class="glyphicon glyphicon-eye-open"></span> Preview</button>
+    <button class="btn btn-primary" onclick="QueueInstruction()"><span class="glyphicon glyphicon-log-in"></span> Queue</button>
+    <button onclick="RunInstruction()" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span> Run</button>
+    <button onclick="RestartChannel()" class="btn btn-danger"><span class="glyphicon glyphicon-repeat"></span> Restart</button>
+</div>
 
 <div class="video-preview">
-    <video src="<%= @channel.stream_url.to_s %>" controls>
+    <video id="channel_video" width="640" height="360" src="<%= @channel.stream_url.to_s %>" controls>
     <source src="<%= @channel.stream_url.to_s %>" type="application/x-mpegURL">
     This browser does not support HTML5 video.
     </video>
 </div>
+
+<script type="text/javascript">
+    var channelId = <%= @channel.id %>;
+    var channelData = {
+        channelId: channelId,
+        streamInstruction: <%= @channel.stream_instruction.to_json.html_safe %>,
+        guideServer: "<%= @channel.guide_server.url %>",
+        guideId: "<%= @channel.identifier %>",
+        streamUrl: "<%= @channel.stream_url %>"
+    };
+</script>
