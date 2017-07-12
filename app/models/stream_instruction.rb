@@ -17,6 +17,14 @@ class StreamInstruction
     {instruction_string: instruction_string,function: function, args: args}.to_json
   end
   
+  def generate_string
+    "#{function}?#{args.to_query}"
+  end
+  
+  def update_string
+    @instruction_string = generate_string
+  end
+  
   private
   def parse_query_string
     question_comps = instruction_string.split("?")
