@@ -5,7 +5,7 @@ class ChannelTest < ActiveSupport::TestCase
     channel = Channel.new
     channel.identifier = 'live'
     channel.guide_server = guide_servers(:one)
-    assert channel.save == false
+    assert channel.save
     
     channel.identifier = 'something-else-entirely'
     assert channel.save!
