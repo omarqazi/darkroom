@@ -1,3 +1,15 @@
+
+<div class="pull-right">
+    <div class="now-playing">
+        <h3>Now Broadcasting</h3>
+        <div class="now-playing-item" id="now_playing_item">
+        </div>
+        <h3>Up Next</h3>
+        <div class="up-next-items" id="up_next_items">
+        </div>
+    </div>
+</div>
+
 <h2><%= @channel.title %></h2>
 <p><%= @channel.description %></p>
 
@@ -17,6 +29,9 @@
     </video>
 </div>
 
+<div class="clearfix"></div>
+
+
 <script type="text/javascript">
     var channelId = <%= @channel.id %>;
     var channelData = {
@@ -26,4 +41,5 @@
         guideId: "<%= @channel.identifier %>",
         streamUrl: "<%= @channel.stream_url %>"
     };
+    LoadChannelViews();
 </script>

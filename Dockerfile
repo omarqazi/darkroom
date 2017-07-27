@@ -13,5 +13,6 @@ ADD . /home/app/darkroom
 WORKDIR /home/app/darkroom
 RUN bundle install
 RUN rake assets:precompile
+RUN echo ye
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 80

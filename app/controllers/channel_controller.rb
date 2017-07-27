@@ -7,6 +7,11 @@ class ChannelController < ApplicationController
   
   def live
     @channel = Channel.where(id: params[:id]).first
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @channel.stream_instruction }
+    end
   end
   
   def update_instruction
@@ -33,5 +38,20 @@ class ChannelController < ApplicationController
     else
       render plain: "no instruction provided"
     end
+  end
+  
+  def render_instruction
+    instruction_arg = params[:instruction]
+    if String === instruction_arg
+      instructions = [StreamInstruction.new(instruction_arg)]
+    elsif Array === instruction_arg
+      instructions = instruction_arg.map { |i| StreamInstruction.new(i) }
+    else
+      return render plain: "huh", status: 400
+    end
+    keys = instructions.map { |si| si.args["key"] }
+    @playlists = keys.map { |k| Playlist.where(key: k).first }
+    return render partial: "playlist", collection: @playlists if @playlists
+    render plain: "huh", status: 400
   end
 end

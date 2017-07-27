@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/channel', to: 'channel#index'
   get '/channel/:id', to: 'channel#live'
   post '/channel/:id/update_instruction', to: 'channel#update_instruction'
+  post '/render_instruction', to: 'channel#render_instruction'
   get '/studio/playlists', to: 'studio#list_playlists'
   get '/studio/playlist', to: 'studio#list_playlists'
   get '/studio/playlist/:id', to: 'studio#show_playlist'

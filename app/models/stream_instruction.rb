@@ -13,7 +13,7 @@ class StreamInstruction
     return self.instruction_string
   end
   
-  def to_json
+  def to_json(x = nil)
     {instruction_string: instruction_string,function: function, args: args}.to_json
   end
   
