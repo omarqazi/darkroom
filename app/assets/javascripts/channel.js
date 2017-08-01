@@ -137,5 +137,12 @@ function RenderAWSInstruction(is,outputElement) {
         data: {instruction: is}
     }).done(function(dd,jj,xx) {
         document.getElementById(outputElement).innerHTML = dd;
-    });   
+    });
+    if (typeof is == "object") {
+         FormatUpNextItems(is.length);   
+    }
+}
+
+function FormatUpNextItems(numberOfUpNextItems) {
+    $("#up_next_items").width(numberOfUpNextItems * 420);
 }

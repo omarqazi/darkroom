@@ -28,6 +28,17 @@ div.channel-tile {
     margin-bottom : 40px;
 }
 
+div.video-preview {
+    float : right;
+    margin : 0;
+    padding : 0;
+}
+
+div.container-fluid {
+    margin : 0;
+    padding : 0;
+}
+
 div.channel-tile video {
     height : 225px;
     width : 400px;
@@ -67,8 +78,8 @@ h2 {
 
 input.instruction-box {
     font-family : 'Monaco';
-    display : block;
-    width : 60%;
+    min-width : 300px;
+    max-width : 900px;
     background-color : black;
     color : white   ;
     /*border : 2px solid white;
@@ -86,4 +97,37 @@ div.now-playing h3 {
 div.now-playing h5 {
     font-size : 1.3em;
     text-align : center;
+}
+
+div.now-playing, div.up-next-items, div.up-next-item, div.now-playing-item {
+    display : inline-block;
+}
+
+div.up-next-item {
+    border : 2px solid white;
+    border-radius : 3px;
+    margin-right : 10px;
+    margin-bottom : 10px;
+    background-color : white;
+    color : black;
+    font-weight : bold;
+    cursor : pointer;
+}
+
+div.up-next-item img {
+     user-select: none;
+}
+
+div.channel-control-box {
+    width : 1000px;
+}
+
+div.now-playing-section {
+    display : inline-block;
+    vertical-align : top;
+}
+
+div.up-next-section {
+    width : 1200px;
+    overflow : scroll;
 }

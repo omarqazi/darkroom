@@ -1,4 +1,6 @@
 <% if playlist %>
-<h5><%= playlist.key %></h5>
-<%= image_tag playlist.poster_url %>
+<div class="up-next-item">
+    <h5><%= playlist.key %></h5>
+    <%= image_tag playlist.poster_url %>
+</div>
 <% end %>

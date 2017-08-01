@@ -1,36 +1,44 @@
 
-<div class="pull-right">
-    <div class="now-playing">
-        <h3>Now Broadcasting</h3>
-        <div class="now-playing-item" id="now_playing_item">
-        </div>
-        <h3>Up Next</h3>
-        <div class="up-next-items" id="up_next_items">
-        </div>
-    </div>
-</div>
-
-<h2><%= @channel.title %></h2>
-<p><%= @channel.description %></p>
-
-<input class="instruction-box" id="instruction_input_box" spellcheck="false" autocorrect="off" autocapitalize="off" type="textbox" value="<%= @channel.instruction %>">
-
-<div class="button-group">
-    <button class="btn btn-primary" onclick="PreviewInstruction()"><span class="glyphicon glyphicon-eye-open"></span> Preview</button>
-    <button class="btn btn-primary" onclick="QueueInstruction()"><span class="glyphicon glyphicon-log-in"></span> Queue</button>
-    <button onclick="RunInstruction()" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span> Run</button>
-    <button onclick="RestartChannel()" class="btn btn-danger"><span class="glyphicon glyphicon-repeat"></span> Restart</button>
-    <a target="_blank" href="<%= @channel.guide_server.url %>/studio/" class="btn btn-primary"><span class="glyphicon glyphicon-facetime-video"></span> Studio</a>
-</div>
-
 <div class="video-preview">
-    <video id="channel_video" width="640" height="360" src="<%= @channel.stream_url.to_s %>" controls>
+    <video id="channel_video" width="640" height="360" src="<%= @channel.stream_url.to_s %>" controls muted>
     <source src="<%= @channel.stream_url.to_s %>" type="application/x-mpegURL">
     This browser does not support HTML5 video.
     </video>
 </div>
 
+
+<div class="channel-control-box" id="channel_control_box">
+    <h2><%= @channel.title %></h2>
+    <p><%= @channel.description %></p>
+
+    <input class="instruction-box" id="instruction_input_box" spellcheck="false" autocorrect="off" autocapitalize="off" type="textbox" value="<%= @channel.instruction %>">
+
+    <div class="button-group">
+        <button class="btn btn-primary" onclick="PreviewInstruction()"><span class="glyphicon glyphicon-eye-open"></span> Preview</button>
+        <button class="btn btn-primary" onclick="QueueInstruction()"><span class="glyphicon glyphicon-log-in"></span> Queue</button>
+        <button onclick="RunInstruction()" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span> Run</button>
+        <button onclick="RestartChannel()" class="btn btn-danger"><span class="glyphicon glyphicon-repeat"></span> Restart</button>
+        <a target="_blank" href="<%= @channel.guide_server.url %>/studio/" class="btn btn-primary"><span class="glyphicon glyphicon-facetime-video"></span> Studio</a>
+    </div>
+</div>
+
+
+
 <div class="clearfix"></div>
+
+<div class="now-playing">
+    <div class="now-playing-section">
+        <h3>Now Broadcasting</h3>
+        <div class="now-playing-item" id="now_playing_item">
+        </div>
+    </div>
+    
+    <div class="now-playing-section up-next-section">
+        <h3>Up Next</h3>
+        <div class="up-next-items" id="up_next_items">
+        </div>
+    </div>
+</div>
 
 
 <script type="text/javascript">
