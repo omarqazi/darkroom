@@ -5,6 +5,7 @@ ENV RAILS_ENV production
 
 CMD ["/sbin/my_init"]
 RUN rm -f /etc/service/nginx/down
+RUN gem update --system
 RUN rm /etc/nginx/sites-enabled/default
 ADD config/webapp.conf /etc/nginx/sites-enabled/webapp.conf
 RUN mkdir /home/app/darkroom
